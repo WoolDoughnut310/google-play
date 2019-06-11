@@ -108,7 +108,7 @@ class App(object):
             
         self.name = _get_text(tree, '//h1[@itemprop="name"]')
         self.package_name = package
-        self.description = _get_text(tree, '//div[@itemprop="description"]/content/div')
+        self.description = _get_attrs(tree, '//meta[@itemprop="description"]', 'content')
         self.category = _get_text(tree, '//a[@itemprop="genre"]')
         self.logo = _get_attrs(tree, '//img[@alt="Cover art"]', 'src')[0]
         self.price = _get_attrs(tree, '//meta[@itemprop="price"]', 'content')[0]
